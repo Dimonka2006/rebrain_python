@@ -20,18 +20,20 @@ log_lines = [
 # 'message': <сообщение лога>
 # Еще раз обращаю ваше внимание на то, что алгоритм заполнения должен быть универсальным для всех данных строк.
 
-parts = log_lines.split()
+for part_line in log_lines:
+
+    parts = part_line.split()
 
 # Извлекаем необходимые значения
-date_time = f"{parts[0]} {parts[1]} {parts[2]}"
+    date_time = f"{parts[0]} {parts[1]} {parts[2]}"
 
-pc_name = parts[3]
+    pc_name = parts[3]
 
-service_name = parts[4][:-1]
+    service_name = parts[4][:-1]
 
-message = log_lines.split(':')[3]
+    #message = part_line.split(':')[3]
 
-error_reason = log_lines.split(':')[4]
+    message = ' '.join(parts[5:])
 
 # Заполните словарь для одной из строк лога с помощью данного алгоритма, запросив у пользователя номер строки с помощью input().
 # Выведите на экран информацию из текущего словаря в таком виде:
@@ -51,9 +53,8 @@ error_reason = log_lines.split(':')[4]
 
 # Используя преобразование во множество, выведите список совпадающих значений полученных словарей.
 
-print(parts)
-print(date_time)
-print(pc_name)
-print(service_name)
-print(message)
-print(error_reason)
+    print(parts)
+    print(date_time)
+    print(pc_name)
+    print(service_name)
+    print(message)
