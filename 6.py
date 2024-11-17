@@ -25,6 +25,7 @@ else:
 count_s = sum(1 for char in log if char.lower() == 's')
 print("Количество букв 'S':", count_s)
 # 1.6. Выделите из строки значения часов, минут и секунд, суммируйте эти 3 числа и выведите полученное число на экран.
+# это в сумме секунд - в 7.py сложил числа
 time_parts = log.split()[2].split(':')
 hours = int(time_parts[0])
 minutes = int(time_parts[1])
@@ -43,9 +44,17 @@ parts = log2.split()
 
 # Извлекаем необходимые значения
 date_time = f"{parts[0]} {parts[1]} {parts[2]}"
+
 pc_name = parts[3]
-service_name = parts[4].strip('[]')
-message = ' '.join(parts[6:-3])
+
+# service_name = parts[4].strip('[]')
+# service_name = log2.split(':')[2]
+service_name = parts[4][:-1]
+
+# message = ' '.join(parts[6:-3])
+
+message = log2.split(':')[3]
+
 error_reason = log2.split(':')[4]
 
 # Формируем итоговое сообщение
