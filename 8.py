@@ -8,7 +8,7 @@ date_time = f"{parts[0]} {parts[1]} {parts[2]}"
 pc_name = parts[3]
 service_name = parts[4][:-1]  # Убираем закрывающуюся скобку
 message = ' '.join(parts[7:])
-error_reason = 'Нет доступных данных'  # Так как причина всегда одна и та же
+error_reason = log2.split(':')[4]
 
 # Формируем итоговое сообщение
 output_message = (
