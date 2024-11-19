@@ -26,13 +26,14 @@ count_s = sum(1 for char in log if char.lower() == 's')
 print("Количество букв 'S':", count_s)
 # 1.6. Выделите из строки значения часов, минут и секунд, суммируйте эти 3 числа и выведите полученное число на экран.
 # это в сумме секунд - в 7.py сложил числа
+``` 
 time_parts = log.split()[2].split(':')
 hours = int(time_parts[0])
 minutes = int(time_parts[1])
 seconds = int(time_parts[2])
 total_seconds = hours * 3600 + minutes * 60 + seconds
 print(total_seconds)   
-
+```
 # Вы получили такую строку логов:
 log2 = 'May 24 14:03:01 ideapad colord[844]: failed to get session [pid 8279]: Нет доступных данных'
 # Нужно сформировать и вывести сообщение в таком формате:
@@ -47,11 +48,7 @@ date_time = f"{parts[0]} {parts[1]} {parts[2]}"
 
 pc_name = parts[3]
 
-# service_name = parts[4].strip('[]')
-# service_name = log2.split(':')[2]
 service_name = parts[4][:-1]
-
-# message = ' '.join(parts[6:-3])
 
 message = log2.split(':')[3]
 
