@@ -34,3 +34,17 @@ def get_line_dict(line: str) -> dict:
 for line in log_lines:
     line_dict = get_line_dict(line)
     print(line_dict)
+
+# Заполните словарь для одной из строк лога с помощью данного алгоритма, запросив у пользователя номер строки с помощью input().
+
+for line in log_lines:
+    index = int(input("Введите номер строки: "))
+    line = log_lines[index]
+    line_dict = get_line_dict(line)
+    print(line_dict)
+
+# Выведите на экран информацию из текущего словаря в таком виде:
+# <имя компьютера>: <сообщение>
+
+    output_format = "{}: {}"
+    print(output_format.format(line_dict["pc_name"], line_dict["message"]))
