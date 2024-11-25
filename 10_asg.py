@@ -1,4 +1,4 @@
-```
+
 log_lines = [
     'May 18 11:59:18 PC-00102 plasmashell[1312]: kf.plasma.core: findInCache with a lastModified timestamp of 0 is deprecated',
     'May 18 13:06:54 ideapad kwin_x11[1273]: Qt Quick Layouts: Detected recursive rearrange. Aborting after two iterations.',
@@ -77,4 +77,3 @@ common_values = set_values_1.intersection(set_values_2)
 common_values_list = list(common_values)
 
 print(common_values_list)
-```
