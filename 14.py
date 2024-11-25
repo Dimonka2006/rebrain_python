@@ -27,7 +27,7 @@ def get_disk_info(disk_number):
     used_memory = resource[disk_number]['used']/1024**3  # переводим байты в ГБ
     
     free_memory = int(total_memory - used_memory)
-    free_percent = round((free_memory / total_memory) * 100, 1)
+    free_percent = int((free_memory / total_memory) * 100)
     
     return {
         'free_memory': free_memory,
