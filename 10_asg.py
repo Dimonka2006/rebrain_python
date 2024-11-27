@@ -35,7 +35,7 @@ def get_line_dict(line: str) -> dict:
 
 for line in log_lines:
     line_dict = get_line_dict(line)
-    # print(line_dict)
+    print(line_dict)
 
 # 2.2. Заполните словарь для одной из строк лога с помощью данного алгоритма, запросив у пользователя номер строки с помощью input().
 
