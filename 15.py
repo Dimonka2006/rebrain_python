@@ -45,16 +45,27 @@ log_dictionaries = [get_line_dict(line) for line in log_lines]
 times = [dictionary["time"] for dictionary in log_dictionaries]
 print(times)
 
+# for dictionary in log_dictionaries:
+#     date_and_time = dictionary["time"].split()
+#     dictionary["date"] = date_and_time[0:2]
+#     dictionary["time"] = date_and_time[2:]
+
+# new_times = [dictionary["time"] for dictionary in log_dictionaries]
+# print(new_times)
+
 for dictionary in log_dictionaries:
-    date_and_time = dictionary["time"].split()
-    dictionary["date"] = date_and_time[0:2]
-    dictionary["time"] = date_and_time[2:]
+    date_and_time = dictionary["time"].split()  
+    dictionary["date"] = " ".join(date_and_time[:2]) 
+    dictionary["time"] = date_and_time[-1] 
 
 new_times = [dictionary["time"] for dictionary in log_dictionaries]
-print(new_times)
+print("\nNew 'time': ", new_times)
 
 messages_from_pc_0078 = [dictionary["message"] for dictionary in log_dictionaries if dictionary["pc_name"] == "PC0078"]
 print(messages_from_pc_0078)
 
-log_dictionary_map = {i + 100: dictionary for i, dictionary in enumerate(log_dictionaries)}
+# log_dictionary_map = {i + 100: dictionary for i, dictionary in enumerate(log_dictionaries)}
+# print(log_dictionary_map[104])
+
+log_dictionary_map = {i: dictionary for i, dictionary in enumerate((log_dictionaries), start = 100)}
 print(log_dictionary_map[104])
