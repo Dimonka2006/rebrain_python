@@ -14,3 +14,8 @@ logs_new = logs.replace('ideapad', 'PC-12092')
 print(logs_new)
 
 
+logs = 'May 24 12:48:31 ideapad systemd[1]: logrotate.service: Succeeded.'
+if 'failed' in logs:
+    print(logs.find('failed'))
+else:
+    print('-1')
