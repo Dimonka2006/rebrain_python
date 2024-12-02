@@ -11,15 +11,26 @@ logs = [
     'May 24 16:19:52 PC-00233 systemd[1116]: Reached target Sound Card.',
     'May 24 19:26:40 PC-00102 rtkit-daemon[1131]: Supervising 5 threads of 2 processes of 1 users.'
 ]
-
+# Загрузите в файл с именем 'file_6.txt' строки этого списка за 20 мая
+# Считайте из этого файла время первой записи. 
+# Ничего кроме времени считывать не нужно! Выведите это время на экран.
 
 filtered_logs = [log for log in logs if 'May 20' in log]
 
 with open('file_6.txt', 'w') as file:
-    file.writelines(filtered_logs)
+    file.writelines(list(filtered_logs))
 
-with open('file_6.txt', 'r') as file:
-    first_line = file.readline().strip()
+# with open('file_6.txt', 'r') as file:
+#     time_line = file.read().strip()
 
-time = first_line.split()[2] 
+# time = time_line.split()[0] 
+# print(time)
+
+with open('file_6.txt', 'rb') as file:
+    # Перемещаемся на позицию, соответствующую началу времени
+    file.seek(7)
+    # Читаем 8 символов (чтобы захватить время полностью)
+    time = file.read(8).decode("utf-8")
+
+# Выводим время на экран
 print(time)
