@@ -48,3 +48,46 @@ list_info = [
 # 4.4. Возвращает сформированный словарь.
 
 # Примените эту функцию к вашему списку и выведите словарь, полученный в результате ее работы, на экран.
+
+
+# 2.1
+output_list = []
+def process_log_lines(output_list, *log_lines):
+    for log_line in log_lines:
+
+        line = log_line.split(maxsplit=3)
+        
+        if len(line) == 4:
+            time, pc_name, service_name, message = line
+        else:
+            print(f'Ошибка при разборе строки: {log_line}')
+            continue
+#2.2            
+def get_line_dict(line: str) -> dict:
+    time_field = line[:15]
+    fields = line[16:]
+    div = fields.find(":")
+    message = fields[div+1:]
+    pc_name, service = fields[:div].split()
+
+    return {
+            "time": time_field.strip(),
+            "pc_name": pc_name.strip(),
+            "service_name": service.strip(),
+            "message": message.strip()
+            }
+
+log_dict = [get_line_dict(line) for line in log_lines]
+#2.3        
+        output_list.append(log_dict)
+
+    return None
+#2.4
+new_log_list = []
+
+process_log_lines(new_log_list, log_lines[0], log_lines[1], log_lines[3])
+
+print(new_log_list)
+
+
+
